@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday Chachi!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: #fff;
+      text-align: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 3em;
+      margin-top: 40px;
+      animation: pop 1s ease forwards;
+    }
+    p {
+      font-size: 1.3em;
+      margin: 20px 0;
+      animation: fadeIn 2s ease forwards;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    button {
+      background: #fff;
+      color: #ff4081;
+      border: none;
+      padding: 15px 30px;
+      margin: 10px;
+      border-radius: 30px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: #ffd6e7;
+    }
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      opacity: 0.7;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday, Chachi!</h1>
+  <p>May your day be as lovely and amazing as you are!</p>
+  <p>Wishing you endless happiness, love, and blessings.</p>
+  <p>You make the world a brighter place just by being you!</p>
+
+  <div class="buttons">
+    <p>Feeling special today?</p>
+    <button onclick="showAnswer('Yes! Absolutely!')">Yes</button>
+    <button onclick="showAnswer('Always Special!')">Always</button>
+  </div>
+
+  <div class="buttons">
+    <p>Will you save us a piece of cake?</p>
+    <button onclick="showAnswer('Of course!')">Of course!</button>
+    <button onclick="showAnswer('Maybe a little!')">Maybe a little!</button>
+  </div>
+
+  <div id="response" style="margin-top:30px; font-size:1.5em;"></div>
+
+  <script>
+    function showAnswer(answer) {
+      document.getElementById('response').innerText = "You said: " + answer + " Lots of love, Chachi!";
+    }
+
+    // Create falling confetti
+    for (let i = 0; i < 80; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 70%)`;
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(confetti);
+    }
+  </script>
+
+</body>
+</html>
